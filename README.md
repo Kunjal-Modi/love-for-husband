@@ -9,7 +9,7 @@ This is a small, web-based love letter created with HTML and CSS — just to rem
 - Easy to host on GitHub Pages
 
 ## 🌐 Live Preview
-[Click here to view the live page](https://yourusername.github.io/love-for-husband/)
+[Click here to view the live page](https://kunjal-modi.github.io/love-for-husband/)
 
 ## ❤️ Why I Made This
 Because sometimes, "I love you" deserves its own website.
