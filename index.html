@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>To My Love</title>
   <style>
     body {
@@ -11,20 +11,27 @@
       text-align: center;
       padding: 40px;
       color: #333;
+      overflow-x: hidden;
+      position: relative;
     }
+
     h1 {
       font-size: 2.5em;
       color: #b30059;
+      animation: heartbeat 1.5s infinite;
     }
+
     .message {
       margin: 20px auto;
       max-width: 600px;
       font-size: 1.2em;
       line-height: 1.6;
     }
+
     .love-notes {
       margin-top: 40px;
     }
+
     .note {
       background: #ffe6f0;
       padding: 20px;
@@ -34,20 +41,75 @@
       max-width: 200px;
       box-shadow: 0 4px 6px rgba(0,0,0,0.1);
     }
+
     .footer {
       margin-top: 50px;
       font-size: 0.9em;
       color: #777;
     }
+
+    /* Heartbeat animation */
+    @keyframes heartbeat {
+      0%, 100% {
+        transform: scale(1);
+      }
+      50% {
+        transform: scale(1.05);
+      }
+    }
+
+    /* Floating hearts */
+    .heart {
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      background: red;
+      transform: rotate(45deg);
+      animation: float 10s infinite ease-in;
+      opacity: 0.6;
+    }
+
+    .heart::before,
+    .heart::after {
+      content: '';
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      background: red;
+      border-radius: 50%;
+    }
+
+    .heart::before {
+      top: -10px;
+      left: 0;
+    }
+
+    .heart::after {
+      left: -10px;
+      top: 0;
+    }
+
+    @keyframes float {
+      0% {
+        transform: translateY(0) rotate(45deg);
+        opacity: 0.6;
+      }
+      100% {
+        transform: translateY(-800px) rotate(45deg);
+        opacity: 0;
+      }
+    }
+
   </style>
 </head>
 <body>
   <h1>To My Amazing Husband ❤️</h1>
   <div class="message">
     Just a little digital hug to remind you how much I love you.<br>
-    You're my rock, my laughter, my safe place. <br>
+    You're my rock, my laughter, my safe place.<br>
     Thank you for being you.
   </div>
+
   <div class="love-notes">
     <h2>Reasons I Love You</h2>
     <div class="note">You always make me laugh</div>
@@ -55,6 +117,24 @@
     <div class="note">You support my dreams</div>
     <div class="note">You give the best hugs</div>
   </div>
+
   <div class="footer">Made with 💗 by your favorite person</div>
+
+  <!-- Floating hearts -->
+  <script>
+    function createHeart() {
+      const heart = document.createElement('div');
+      heart.classList.add('heart');
+      heart.style.left = Math.random() * window.innerWidth + 'px';
+      heart.style.animationDuration = (Math.random() * 5 + 5) + 's';
+      document.body.appendChild(heart);
+
+      setTimeout(() => {
+        heart.remove();
+      }, 10000);
+    }
+
+    setInterval(createHeart, 300);
+  </script>
 </body>
 </html>
